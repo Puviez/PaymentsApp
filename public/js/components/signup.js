@@ -64,42 +64,45 @@ class Signup extends React.Component {
         };
 
     render () {
+        if (this.state.redirect === true) {
+            return <Redirect to="/login" />;
+        }
         return (
             <React.Fragment>
-            <form onSubmit={this.handleSubmit}>
-                <label htmlFor='username'>Username</label>
-                <input
-                    id='username'
-                    type='text'
-                    value={this.state.username}
-                    onChange={this.handleChange}
-                />
-                <label htmlFor='password'>Password</label>
-                <input
-                    id='password'
-                    type='text'
-                    value={this.state.password}
-                    onChange={this.handleChange}
-                />
-                <label htmlFor='name'>Name</label>
-                <input
-                    id='name'
-                    type='text'
-                    value={this.state.name}
-                    onChange={this.handleChange}
-                />
-                <label htmlFor='email'>Email</label>
-                <input
-                    id='email'
-                    type='text'
-                    value={this.state.email}
-                    onChange={this.handleChange}
-                />
-                <input
-                    type='submit'
-                    value='Submit'
-                />
-            </form>
+                <form onSubmit={this.handleSubmit}>
+                    <label htmlFor='username'>Username</label>
+                    <input
+                        id='username'
+                        type='text'
+                        value={this.state.username}
+                        onChange={this.handleChange}
+                    />
+                    <label htmlFor='password'>Password</label>
+                    <input
+                        id='password'
+                        type='password'
+                        value={this.state.password}
+                        onChange={this.handleChange}
+                    />
+                    <label htmlFor='name'>Name</label>
+                    <input
+                        id='name'
+                        type='text'
+                        value={this.state.name}
+                        onChange={this.handleChange}
+                    />
+                    <label htmlFor='email'>Email</label>
+                    <input
+                        id='email'
+                        type='text'
+                        value={this.state.email}
+                        onChange={this.handleChange}
+                    />
+                    <input
+                        type='submit'
+                        value='Submit'
+                    />
+                </form>
             </React.Fragment>
         )
     }

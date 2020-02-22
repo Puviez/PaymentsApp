@@ -9,6 +9,19 @@ const {
   } = ReactRouterDOM;
 
 class App extends React.Component {
+    constructor (props) {
+        super(props);
+        this.state = {
+            currentUser: ""
+        }
+    }
+
+    updateUser = (user) => {
+        this.setState({
+            currentUser: user
+        })
+    }
+
     render () {
         return (
             <BrowserRouter>
@@ -20,8 +33,15 @@ class App extends React.Component {
                         <Signup />
                     </Route>
                     <Route path="/login">
-                        <Login />
+                        <Login setUser={this.updateUser}/>
                     </Route> 
+                    <Route path="/home">
+                        {this.state.currentUser ? (
+                            <Home currentUser={this.state.currentUser} />
+                        ) : (
+                                <Redirect to="/login" setUser={this.userState} />
+                            )}
+                    </Route>
                 </Switch>
             </BrowserRouter>
         )
