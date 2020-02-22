@@ -22,6 +22,12 @@ class App extends React.Component {
         })
     }
 
+    toLogout = () => {
+        this.setState({
+          currentUser: ""
+        });
+      };
+
     render () {
         return (
             <BrowserRouter>
@@ -37,7 +43,7 @@ class App extends React.Component {
                     </Route> 
                     <Route path="/home">
                         {this.state.currentUser ? (
-                            <Home currentUser={this.state.currentUser} />
+                            <Home currentUser={this.state.currentUser} toLogout={this.toLogout}/>
                         ) : (
                                 <Redirect to="/login" setUser={this.userState} />
                             )}
