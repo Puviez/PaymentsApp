@@ -1,0 +1,35 @@
+{
+  "name": "PaymentsApp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Puviez/PaymentsApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Puviez/PaymentsApp/issues"
+  },
+  "homepage": "https://github.com/Puviez/PaymentsApp#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "babel-cli": "^6.26.0",
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^5.9.2",
+    "nodemon": "^2.0.2",
+    "react-bootstrap": "^1.0.0-beta.16",
+    "react-modal": "^3.11.1",
+    "react-router-dom": "^5.1.2"
+  }
+}
