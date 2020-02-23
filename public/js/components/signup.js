@@ -19,17 +19,21 @@ class Signup extends React.Component {
 
     handleSubmit = event => {
         event.preventDefault();
+        // Create Stripe User
+        // var urlencoded = new URLSearchParams();
+        // urlencoded.append("description",this.state.username)
+        // urlencoded.append("email",this.state.email)
+        // urlencoded.append("name",this.state.name)
+
+        // var myHeaders = new Headers();
+        // myHeaders.append("Authorization", "Bearer sk_test_gkQR8IrPPm3BHB3HXiPDbslu00UmRZMhQc");
+        // myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+    
         // fetch("https://api.stripe.com/v1/customers", {
         //     method: "POST",
-        //     headers: {
-        //         Authorization: "Bearer sk_test_gkQR8IrPPm3BHB3HXiPDbslu00UmRZMhQc",
-        //         "Content-Type": "application/x-www-form-urlencoded"
-        //     },
-        //     body: {
-        //         description: this.state.username,
-        //         email: this.state.email,
-        //         name: this.state.name
-        //     }
+        //     headers: myHeaders,
+        //     body: urlencoded,
+        //     redirect: 'follow'
         // })
         //   .then(createdStripeUser => {
         //       console.log(createdStripeUser)

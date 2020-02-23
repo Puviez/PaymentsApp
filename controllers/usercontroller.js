@@ -29,4 +29,17 @@ users.get("/", (req, res) => {
   });
 });
 
+users.put("/:id", (req, res) => {
+  User.findByIdAndUpdate(
+    { _id: req.params.id },
+    req.body,
+    { new: true },
+    (err, updatedUser) => {
+      if(err) console.log(err);
+      console.log('Updated User');
+      res.json(updatedUser);
+    }
+  );
+});
+
 module.exports = users;

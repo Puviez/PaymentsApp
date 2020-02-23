@@ -51,6 +51,9 @@ class App extends React.Component {
                     <Route path="/history">
                         <History currentUser={this.state.currentUser} toLogout={this.toLogout} />
                     </Route>
+                    <Route path="/account">
+                        <Account currentUser={this.state.currentUser} toLogout={this.toLogout} />
+                    </Route>
                 </Switch>
             </BrowserRouter>
         )
