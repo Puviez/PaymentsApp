@@ -43,10 +43,13 @@ class App extends React.Component {
                     </Route> 
                     <Route path="/home">
                         {this.state.currentUser ? (
-                            <Home currentUser={this.state.currentUser} toLogout={this.toLogout}/>
+                            <Home currentUser={this.state.currentUser} toLogout={this.toLogout} />
                         ) : (
                                 <Redirect to="/login" setUser={this.userState} />
                             )}
+                    </Route>
+                    <Route path="/history">
+                        <History currentUser={this.state.currentUser} toLogout={this.toLogout} />
                     </Route>
                 </Switch>
             </BrowserRouter>

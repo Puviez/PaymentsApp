@@ -30,6 +30,7 @@ class Login extends React.Component {
               this.setState({
                 currentUser: jsonedUser
               })
+            //   console.log(this.state.currentUser)
           })
           .then(() => {
               this.props.setUser(this.state.currentUser);
