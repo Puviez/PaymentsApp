@@ -38,12 +38,12 @@ app.use(
   })
 );
 // Routes
-// const commitmentsController = require("./controller/commitments.js");
-// app.use("/commitments", commitmentsController);
-const sessionsControllers = require("./controllers/sessionscontroller.js");
-app.use("/sessions", sessionsControllers);
-const usersControllers = require("./controllers/usercontroller.js");
-app.use("/users", usersControllers);
+const merchantsController = require("./controllers/merchcontroller.js");
+app.use("/merchants", merchantsController);
+const sessionsController = require("./controllers/sessionscontroller.js");
+app.use("/sessions", sessionsController);
+const usersController = require("./controllers/usercontroller.js");
+app.use("/users", usersController);
 // const progressUpdateControllers = require("./controller/progressUpdate.js");
 // app.use("/progressUpdate", progressUpdateControllers);
 
