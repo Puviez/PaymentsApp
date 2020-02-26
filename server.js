@@ -5,6 +5,7 @@ const app = express();
 const db = mongoose.connection;
 const session = require("express-session");
 const bodyParser = require("body-parser");
+var cors = require('cors')
 
 // Environment Variables
 const PORT = process.env.PORT || 3000;
@@ -37,6 +38,8 @@ app.use(
     saveUninitialized: false
   })
 );
+app.use(cors())
+
 // Routes
 const merchantsController = require("./controllers/merchcontroller.js");
 app.use("/merchants", merchantsController);
@@ -44,8 +47,8 @@ const sessionsController = require("./controllers/sessionscontroller.js");
 app.use("/sessions", sessionsController);
 const usersController = require("./controllers/usercontroller.js");
 app.use("/users", usersController);
-// const progressUpdateControllers = require("./controller/progressUpdate.js");
-// app.use("/progressUpdate", progressUpdateControllers);
+const paymentsController = require("./controllers/paymentcontroller.js");
+app.use("/payments", paymentsController);
 
 // this will catch any route that doesn't exist
 app.get("*", (req, res) => {

@@ -10,13 +10,14 @@ merchants.post("/", (req, res) => {
   );
   Merchant.create(
     {
+      type: req.body.type,
       username: req.body.username,
       password: req.body.password,
       name: req.body.name,
       email: req.body.email,
       category: req.body.category,
       description: req.body.description,
-      bank_account_num: req.body.description,
+      bank_account_num: req.body.bank_account_num,
     },
     (err, createdMerchant) => {
       if (err) console.log(err.message);

@@ -10,6 +10,8 @@ users.post("/", (req, res) => {
   );
   User.create(
     {
+      stripe_id: req.body.stripe_id,
+      type: req.body.type,
       username: req.body.username,
       password: req.body.password,
       name: req.body.name,

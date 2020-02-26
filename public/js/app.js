@@ -8,6 +8,7 @@ const {
     browserHistory
   } = ReactRouterDOM;
 
+
 class App extends React.Component {
     constructor (props) {
         super(props);
@@ -53,6 +54,9 @@ class App extends React.Component {
                     </Route>
                     <Route path="/account">
                         <Account currentUser={this.state.currentUser} toLogout={this.toLogout} />
+                    </Route>
+                    <Route path="/payment">
+                        <Payment currentUser={this.state.currentUser} toLogout={this.toLogout} />
                     </Route>
                 </Switch>
             </BrowserRouter>

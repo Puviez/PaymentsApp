@@ -11,6 +11,9 @@ class Navbar extends React.Component {
                 <div>
                     <Link to="/account">Account</Link>
                 </div>
+                <div>
+                    <Link to="/payment">Payment</Link>
+                </div>
                 <div onClick={this.props.toLogout}>
                     <Link to="/">Logout</Link>
                 </div>

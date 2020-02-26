@@ -2,6 +2,7 @@ class Signup extends React.Component {
     constructor (props) {
         super(props);
         this.state = {
+            type: "User",
             stripe_id: "",
             username: "",
             password: "",
@@ -23,11 +24,17 @@ class Signup extends React.Component {
 
     toggleMerchant = () => {
         this.setState({merchant: !this.state.merchant})
+        console.log("State:" + this.state.merchant)
+        if (this.state.merchant) {
+            this.setState({type: "User"})
+        } else {
+            this.setState({type: "Merchant"})
+        }
     }
 
     handleSubmit = event => {
         event.preventDefault();
-        if(this.state.merchant) {
+        if(this.state.merchant === true) {
             fetch("/merchants", {
                 body: JSON.stringify(this.state),
                 method: "POST",
@@ -46,37 +53,38 @@ class Signup extends React.Component {
                   redirect: true
                 });
               })
-              .catch(error => console.log(error));
+              .catch((error) => console.log(error));
         } else {
 
         
-        // Create Stripe User
-        // var urlencoded = new URLSearchParams();
-        // urlencoded.append("description",this.state.username)
-        // urlencoded.append("email",this.state.email)
-        // urlencoded.append("name",this.state.name)
+            // Create Stripe User
+            
+            // var urlencoded = new URLSearchParams();
+            // urlencoded.append("description",this.state.username)
+            // urlencoded.append("email",this.state.email)
+            // urlencoded.append("name",this.state.name)
 
-        // var myHeaders = new Headers();
-        // myHeaders.append("Authorization", "Bearer sk_test_gkQR8IrPPm3BHB3HXiPDbslu00UmRZMhQc");
-        // myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-    
-        // fetch("https://api.stripe.com/v1/customers", {
-        //     method: "POST",
-        //     headers: myHeaders,
-        //     body: urlencoded,
-        //     redirect: 'follow'
-        // })
-        //   .then(createdStripeUser => {
-        //       console.log(createdStripeUser)
-        //       return createdStripeUser.json();
-        //   })
-        //   .then(stripeUser => {
-        //       this.setState({
-        //           stripe_id: stripeUser.id
-        //       });
-        //       console.log(this.state)
-        //   })
-        //   .catch(error => console.log(error));
+            // var myHeaders = new Headers();
+            // myHeaders.append("Authorization", "Bearer sk_test_gkQR8IrPPm3BHB3HXiPDbslu00UmRZMhQc");
+            // myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
+        
+            // fetch("https://api.stripe.com/v1/customers", {
+            //     method: "POST",
+            //     headers: myHeaders,
+            //     body: urlencoded,
+            //     redirect: 'follow'
+            // })
+            // .then(createdStripeUser => {
+            //     console.log("Hello", createdStripeUser)
+            //     return createdStripeUser.json();
+            // })
+            // .then(stripeUser => {
+            //     this.setState({
+            //         stripe_id: stripeUser.id
+            //     });
+            // })
+            // .catch(error => console.log(error));
+
             fetch("/users", {
                 body: JSON.stringify(this.state),
                 method: "POST",
@@ -86,13 +94,13 @@ class Signup extends React.Component {
                 }
             })
                 .then(createdUser => {
-                console.log(createdUser);
-                return createdUser.json();
+                    console.log(createdUser);
+                    return createdUser.json();
                 })
                 .then(() => {
-                // to toggle to true to redirect
-                this.setState({
-                    redirect: true
+                    // to toggle to true to redirect
+                    this.setState({
+                        redirect: true
                 });
                 })
                 .catch(error => console.log(error));
@@ -119,13 +127,6 @@ class Signup extends React.Component {
                             id='password'
                             type='password'
                             value={this.state.password}
-                            onChange={this.handleChange}
-                        />
-                        <label htmlFor='name'>Name</label>
-                        <input
-                            id='name'
-                            type='text'
-                            value={this.state.name}
                             onChange={this.handleChange}
                         />
                         <label htmlFor='email'>Email</label>

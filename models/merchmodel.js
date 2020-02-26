@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
 
 const merchantsSchema = mongoose.Schema({
+  type: String,
   username: {
       type: String,
       unique: true
   },
   password: String,
-  name: String,
   email: String,
   category: String,
   description: String,

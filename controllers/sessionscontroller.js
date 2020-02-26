@@ -3,6 +3,7 @@ const sessions = express.Router();
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 const User = require('../models/usermodel.js');
+const Merchant = require('../models/merchmodel.js');
 
 sessions.post('/', (req, res) => {
     User.findOne({ username: req.body.username }, (err, foundUser) => {

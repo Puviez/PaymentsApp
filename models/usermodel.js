@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
 const usersSchema = mongoose.Schema({
+  type: String,
   stripe_id: String,
   username: {
       type: String,
