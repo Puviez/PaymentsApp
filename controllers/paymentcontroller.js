@@ -19,10 +19,10 @@ payments.post("/", (req, res) => {
     );
   });
   
-payments.get("/", (req, res) => {
+payments.get("/:id", (req, res) => {
     console.log("heerrree")
-    Payment.find({}, (err, foundPayment) => {
-        res.json(foundPayment);
+    Payment.find({owner: req.params.id}).sort('date').exec((err, foundPayments) => {
+        res.json(foundPayments);
     });
 });
 
