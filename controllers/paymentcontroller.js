@@ -1,5 +1,5 @@
 const express = require("express");
-const Payment = require("../models/merchmodel.js");
+const Payment = require("../models/paymentmodel.js");
 const payments = express.Router();
 
 payments.post("/", (req, res) => {
@@ -25,3 +25,5 @@ payments.get("/", (req, res) => {
         res.json(foundPayment);
     });
 });
+
+module.exports = payments;

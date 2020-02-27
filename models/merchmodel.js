@@ -11,7 +11,7 @@ const merchantsSchema = mongoose.Schema({
   category: String,
   description: String,
   bank_account_num: Number,
-  transactions: Array
+  // transactions: Array
 });
 
 const Merchants = mongoose.model("Merchants", merchantsSchema);

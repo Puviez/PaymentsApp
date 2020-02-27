@@ -10,8 +10,8 @@ const usersSchema = mongoose.Schema({
   password: String,
   name: String,
   email: String,
-  cards: Array,
-  transactions: Array
+  // cards: Array,
+  // transactions: Array
 });
 
 const Users = mongoose.model("Users", usersSchema);

@@ -26,9 +26,9 @@ merchants.post("/", (req, res) => {
   );
 });
 
-merchants.get("/", (req, res) => {
+merchants.get("/:id", (req, res) => {
   console.log("heerrree")
-  Merchant.find({}, (err, foundMerchant) => {
+  Merchant.findById({_id: req.params.id}, (err, foundMerchant) => {
     res.json(foundMerchant);
   });
 });
